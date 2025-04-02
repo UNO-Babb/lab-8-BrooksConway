@@ -17,18 +17,18 @@ def makeMajorYear(major, year):
   first3 = major[0:3]
   year = year.upper()
   yearAb = ""
-  if year == "Freshman":
+  if year == "FRESHMAN":
     yearAb = "FR"
-  elif year == "SOPHMORE":
+  elif year == "SOPHOMORE":
     yearAb = "SO"
   elif year == "JUNIOR":
     yearAb = "JR"
   elif year == "SENIOR":
-    yearAb == "SR"
+    yearAb = "SR"
   else:
     yearAb = "Grad"
- 
-  return first3 + yearAb
+  
+  return first3 + "-" + yearAb
 
 def main():
 
@@ -39,7 +39,6 @@ def main():
   #Process each line of the input file and output to the CSV file
   for student in inFile:
     studentData = student.split()
-    print(studentData)
     firstName = studentData[0]
     lastName = studentData[1]
     studentID = studentData[3]
@@ -48,7 +47,7 @@ def main():
     userID = makeID(firstName, lastName, studentID)
     majorYear = makeMajorYear(major, year)
 
-    studentOutput = lastName + "," + firstName + "," + userID + "," + majorYear + "/n"
+    studentOutput = lastName + "," + firstName + "," + userID + "," + majorYear + "\n"
     outFile.write(studentOutput)
 
 
